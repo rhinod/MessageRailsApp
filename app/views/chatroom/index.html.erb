@@ -8,8 +8,19 @@
         <div class="ui fluid raised card chatbox">
             <div class="content">
                 <div class="ui large feed">
-                
-                <div class="event">
+                <% @messages.each do |msj| %>
+                    <div class="event">    
+                        <div class="content">
+                            <div class="date">
+                                <%= time_ago_in_words(msj.created_at) %> ago
+                            </div>
+                            <div class="summary">
+                                <%= link_to msj.user.username, '#' %> : <%= msj.body %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                <!--div class="event">
                     <div class="label">
                     <img src="/images/avatar/small/helen.jpg">
                     </div>
@@ -25,24 +36,7 @@
                         <a><img src="/images/wireframe/image.png"></a>
                     </div>
                     </div>
-                </div>
-
-                <div class="event">
-                    <div class="label">
-                    <img src="/images/avatar/small/laura.jpg">
-                    </div>
-                    <div class="content">
-                    <div class="date">
-                        3 days ago
-                    </div>
-                    <div class="summary">
-                        <a>Laura Faucet</a> created a post
-                    </div>
-                    <div class="extra text">
-                        Have you seen what's going on in Israel? Can you believe it.
-                    </div>
-                    </div>
-                </div>
+                </div-->
             </div>
 
             
