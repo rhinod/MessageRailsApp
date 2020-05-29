@@ -24,10 +24,23 @@ scroll_bottom = function(){
 }
 
 
+submit_message = function() {
+    $('#message-body').on('keydown',function(e) {
+        if (e.keycode == 13){
+            $('button').click();
+            e.target.value="";
+        }       
+    });
+}
+
+
+
 $(document).on('turbolinks:load',function(){
     $('.ui.dropdown').dropdown();
     $('.message .close').on('click',function() {
         $(this).closest('.message').transition('fade');
     });
     scroll_bottom();
+    submit_message();
+
 })
