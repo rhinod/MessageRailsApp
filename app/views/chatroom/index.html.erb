@@ -9,38 +9,22 @@
             <div class="content">
                 <div class="ui large feed">
                 <%= render @messages %>
-                <!--div class="event">
-                    <div class="label">
-                    <img src="/images/avatar/small/helen.jpg">
-                    </div>
-                    <div class="content">
-                    <div class="date">
-                        3 days ago
-                    </div>
-                    <div class="summary">
-                        <a>Helen Troy</a> added 2 photos
-                    </div>
-                    <div class="extra images">
-                        <a><img src="/images/wireframe/image.png"></a>
-                        <a><img src="/images/wireframe/image.png"></a>
-                    </div>
-                    </div>
-                </div-->
             </div>
 
             
 
         </div>
         <div class="extra content">
-            <form action="" class="ui reply form">
+            <%= form_for(@message, html: {class:"ui reply form", role: "form" }, url: message_path) do |f| %>
                 <div class="field">
                     <div class="ui fluid icon input">
-                        <input type="text" placeholder="Write your message...">
-                        <i class="bordered inverted green edit icon"></i>
+                        <%= f.text_field :body %>
+                        <%= f.button '<i class="bordered inverted green edit icon"></i>'.html_safe %>
+                        
                     </div>
                 </div>
-                
-            </form>
+            <% end %>    
+            
         </div>
     </div>
 </div>
