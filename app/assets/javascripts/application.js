@@ -23,12 +23,16 @@ scroll_bottom = function(){
     }
 }
 
+clean_textbox = function(){
+    $('#message-body').html('');
+}
+
 
 submit_message = function() {
     $('#message-body').on('keydown',function(e) {
         if (e.keycode == 13){
             $('button').click();
-            e.target.value="";
+            e.target.value= "";
         }       
     });
 }
